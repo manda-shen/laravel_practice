@@ -2,25 +2,21 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class AnimalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // 
-
-        $data=[
-        ['id'=>1,'name'=>'amy'],
-        ['id'=>2,'name'=>'bob'],
-        ['id'=>3,'name'=>'cat']
-    ];
-    return view('student.index',['data'=>$data]);
-       
+        // dd('123');
+        $data = DB::table('pets')->get();
+ 
+        return view('animal.index', ['data' => $data]);
     }
 
     /**
@@ -69,13 +65,5 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function excel(){
-        dd('student controler -excel');
-    }
-
-    public function viewcontroler(){
-        dd('to see how it work');
     }
 }

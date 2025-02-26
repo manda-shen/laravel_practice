@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AnimalController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -18,3 +19,6 @@ Route::get('/', function () {
 Route::get('/students_hello', [StudentController::class,'excel']);
 Route::get('/how_it_work', [StudentController::class,'viewcontroler']);
 Route::resource('students', StudentController::class);
+
+
+Route::resource('pets', AnimalController::class);
